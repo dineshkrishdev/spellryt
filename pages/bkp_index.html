@@ -27,7 +27,7 @@
 
             app.controller('test', function($scope, $http) {
                 
-                $http.get("http://localhost:9000/resources/a-series.json")
+                $http.get("http://localhost:9001/resources/a.json")
 	                .then(function(response) {
 		            var words = response.data.words;
 
