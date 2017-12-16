@@ -6,11 +6,27 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
        
    $stateProvider
 
-   .state('main', {
-       url: "/main",
-       templateUrl: "main.html",
-       data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
-   })
+  .state('main', {
+    url: "/main",
+    templateUrl: "main.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
+  .state('alphabets', {
+    url: "/alphabets",
+    templateUrl: "alphabets.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
+  .state('settings', {
+    url: "/settings",
+    templateUrl: "settings.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
+  .state('about', {
+    url: "/about",
+    templateUrl: "about.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
+
 }]);
 
 app.directive('title', ['$rootScope', '$timeout',
