@@ -1,0 +1,29 @@
+body {
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
+}
+
+main {
+	flex: 1 0 auto;
+}
+
+tbody {
+	display:block;
+	height:530px;
+	overflow:auto;
+}
+
+thead, tbody tr {
+	display:table;
+	width:100%;
+	table-layout:fixed;
+}
+
+thead {
+	width: calc( 100% - 1em )
+}
+
+table {
+	width:100%;
+}
