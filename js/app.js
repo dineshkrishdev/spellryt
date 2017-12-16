@@ -27,6 +27,12 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
   })
 
+  .state('spell', {
+    url: "/spell",
+    templateUrl: "spell.html",
+    controller: "prepare"
+  })
+
 }]);
 
 app.directive('title', ['$rootScope', '$timeout',
