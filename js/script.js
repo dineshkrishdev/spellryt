@@ -58,6 +58,19 @@ function getData() {
         current = result[(Math.floor(Math.random() * result.length))];
 
         console.log(current);
+
+        var msg = new SpeechSynthesisUtterance();
+        var voices = window.speechSynthesis.getVoices();
+        msg.voice = voices[2];
+        msg.rate = 10 / 10;
+        msg.pitch = 1;
+        msg.text = current.word;
+
+        msg.onend = function(e) {
+            console.log('Finished in ' + event.elapsedTime + ' seconds.');
+        };
+
+        speechSynthesis.speak(msg);
         
     });
 }
