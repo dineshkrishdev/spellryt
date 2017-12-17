@@ -20,7 +20,7 @@ app.controller('prepare', function($location, $http) {
         
         word = db.getSchema().table('a_series');
 
-        $http.get("/resources/a.json")
+        $http.get("https://raw.githubusercontent.com/dineshkrishdev/spellryt/master/resources/a.json")
         .then(function(response) {
             var words = response.data.words;
 
