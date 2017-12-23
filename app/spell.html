@@ -9,7 +9,7 @@
 
                     <h6 id="word"></h6>
 
-                    <input type="button" value="Get" onclick="getData();" />
+                    <input type="button" value="Start" onclick="getRandomWord();" />
 
                     <input type="text" id="input"/>
 
@@ -24,23 +24,14 @@
 <script>
 
     function check() {
-
         if(current.word == $('#input').val()) {
-
             alert("correct");
-
-            update();
-
-            getData();
-
+            makeDone();
+            getRandomWord();
             $('#input').val("");
-
         } else {
-
             alert("wrong");
         }
-
     }
-
 
 </script>
