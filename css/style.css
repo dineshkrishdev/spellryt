@@ -8,12 +8,30 @@ body {
     font-size: 17px;
 }
 
-#myVideo {
+h1 {
+    font-family: Arial;
+    font-size: 80px;
+}
+
+p {
+    font-size: 26px;
+}
+
+#bgVideo {
     position: fixed;
     right: 0;
     bottom: 0;
     min-width: 100%; 
     min-height: 100%;
+}
+
+.word {
+    color:rgb(54, 139, 23);
+}
+
+.word:before {
+   color: white;
+   content: "Spell";
 }
 
 .content {
@@ -28,15 +46,16 @@ body {
 
 #myBtn {
     width: 200px;
+    height:50px;
     font-size: 18px;
     padding: 10px;
     border: none;
-    background: #000;
-    color: #fff;
+    background: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
     cursor: pointer;
 }
 
 #myBtn:hover {
-    background: #ddd;
-    color: black;
+    background: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
