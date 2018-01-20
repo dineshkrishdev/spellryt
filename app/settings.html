@@ -6,9 +6,86 @@
                 <span class="card-title"><strong>Settings</strong></span>
                 <br/>
                 <div class="row">
-                    
+					<form class="col s8 offset-s2">
+						<div class="row">
+						  <label>Choose voice</label>
+						  <select id="voices"></select>
+						</div>
+						<div class="row">
+						  <div class="col s6">
+							<label>Rate</label>
+							<p class="range-field">
+							  <input type="range" id="rate" min="1" max="100" value="10" />
+							</p>
+						  </div>
+						  <div class="col s6">
+							<label>Pitch</label>
+							<p class="range-field">
+							  <input type="range" id="pitch" min="0" max="2" value="1" />
+							</p>
+						  </div>
+						  <div class="col s12">
+							<p>N.B. Rate and Pitch only work with native voice.</p>
+						  </div>
+						</div>
+						<div class="row">
+						  <div class="input-field col s12">
+							<textarea id="message" class="materialize-textarea"></textarea>
+							<label>Type text</label>
+						  </div>
+						</div>
+						<button id="testVoice" class="waves-effect waves-light btn">Test</button>
+						<button id="setVoice" class="waves-effect waves-light btn">Set</button>
+					  </form>  
+					<div id="modal1" class="modal">
+					  <h4>Speech Synthesis not supported</h4>
+					  <p>Your browser does not support speech synthesis.</p>
+					  <p>We recommend you use Google Chrome.</p>
+					  <div class="action-bar">
+						<a href="#" class="waves-effect waves-green btn-flat modal-action modal-close">Close</a>
+					  </div>
+					</div>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+		$(function(){
+		if ('speechSynthesis' in window) {
+			speechSynthesis.onvoiceschanged = function() {
+			  var $voicelist = $('#voices');
+
+			  if($voicelist.find('option').length == 0) {
+				speechSynthesis.getVoices().forEach(function(voice, index) {
+				  var $option = $('<option>')
+				  .val(index)
+				  .html(voice.name + (voice.default ? ' (default)' :''));
+
+				  $voicelist.append($option);
+				});
+
+				$voicelist.material_select();
+			  }
+			}
+			$('#testVoice').click(function(){
+			  var text = $('#message').val();
+			  var msg = new SpeechSynthesisUtterance();
+			  var voices = window.speechSynthesis.getVoices();
+			  msg.voice = voices[$('#voices').val()];
+			  msg.rate = $('#rate').val() / 10;
+			  msg.pitch = $('#pitch').val();
+			  msg.text = text;
+
+			  msg.onend = function(e) {
+				console.log('Finished in ' + event.elapsedTime + ' seconds.');
+			  };
+			  speechSynthesis.speak(msg);
+			})
+		  } else {
+			$('#modal1').openModal();
+		  }
+		});
+		
+</script>
