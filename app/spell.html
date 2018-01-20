@@ -34,7 +34,7 @@
                                         Repeat
                                         <i class="material-icons right">repeat</i>
                                     </button>
-                                    <button id="clearBtn" onclick="clear();" class="waves-effect waves-light btn">
+                                    <button id="clearBtn" onclick="clearText();" class="waves-effect waves-light btn">
                                         Clear
                                         <i class="material-icons right">clear</i>
                                     </button>
@@ -90,6 +90,10 @@
         } else {
             Materialize.toast('Wrong! Try again', 2000);
         }
+    }
+
+    function clearText() {
+        $("#input").val("");
     }
 
 </script>
