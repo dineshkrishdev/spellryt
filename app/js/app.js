@@ -42,7 +42,6 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     templateUrl: "spell.html",
     controller: "prepare"
   })
-
 }]);
 
 app.directive('title', ['$rootScope', '$timeout',
