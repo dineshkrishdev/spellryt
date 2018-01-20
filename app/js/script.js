@@ -3,19 +3,39 @@ var current;
 var randomIndex;
 var repeatCount = 0;
 
+var letters
+
 app.controller('prepare', function($location, $http) {
     var selected = $location.search().letter;
-    wordList = [];
-    $http.get("/spellryt/app/resources/"+selected+".json")
-        .then(function(response) {
-            var words = response.data.words;
-            words.forEach(element => {
-                var obj = new Object();
-                obj.word = element;
-                obj.status = false;
-                wordList.push(obj);
+    var type = $location.search().type;
+    if(type == "letter") {
+        wordList = [];
+        $http.get("/spellryt/app/resources/"+selected+".json")
+            .then(function(response) {
+                var words = response.data.words;
+                words.forEach(element => {
+                    var obj = new Object();
+                    obj.word = element;
+                    obj.status = false;
+                    wordList.push(obj);
+                });
+        });
+    } else if(type == "random") {
+        wordList = [];
+        for(var i = 97; i < 123; i++) {
+            var ch = String.fromCharCode(i);
+            $http.get("/spellryt/app/resources/"+ch+".json")
+            .then(function(response) {
+                var words = response.data.words;
+                words.forEach(element => {
+                    var obj = new Object();
+                    obj.word = element;
+                    obj.status = false;
+                    wordList.push(obj);
+                });
             });
-    });
+        }
+    }
     console.log(wordList);
 });
 
