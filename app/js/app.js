@@ -16,6 +16,16 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
     templateUrl: "alphabets.html",
     data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
   })
+  .state('random', {
+    url: "/random",
+    templateUrl: "random.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
+  .state('custom-words', {
+    url: "/custom-words",
+    templateUrl: "custom-words.html",
+    data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
+  })
   .state('settings', {
     url: "/settings",
     templateUrl: "settings.html",
