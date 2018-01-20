@@ -51,7 +51,6 @@ app.controller('prepareSettings', function($location, $http) {
 
               $voicelist.append($option);
             });
-
             $voicelist.material_select();
           }
         }
