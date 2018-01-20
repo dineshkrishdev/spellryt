@@ -29,6 +29,7 @@ app.config(['$stateProvider', '$urlRouterProvider', function($stateProvider, $ur
   .state('settings', {
     url: "/settings",
     templateUrl: "settings.html",
+    controller: "prepareSettings",
     data: {pageTitle: 'DevBuddy - Developer Supporing Tool'} 
   })
   .state('about', {
