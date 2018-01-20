@@ -38,6 +38,7 @@ function getRandomWord() {
         console.log('Finished in ' + event.elapsedTime + ' seconds.');
     };
     speechSynthesis.speak(msg);
+    repeatCount = 0;
 }
 
 function repeat() {

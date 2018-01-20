@@ -14,10 +14,14 @@
                         <center>
                             <div class="row">
                                 <div class="col s12">
-                                    <button id="startBtn" onclick="getRandomWord();" class="waves-effect waves-light btn">
+                                    <button id="startBtn" onclick="begin(this);" class="waves-effect waves-light btn">
                                         Start
                                         <i class="material-icons right">play_arrow</i>
                                     </button>
+                                    <button id="nextBtn" onclick="begin(this);" class="waves-effect waves-light btn">
+                                            Next
+                                            <i class="material-icons right">navigate_next</i>
+                                        </button>
                                     <button id="checkBtn" onclick="check();" class="waves-effect waves-light btn">
                                         Check
                                         <i class="material-icons right">check</i>
@@ -53,6 +57,29 @@
 </div>
 
 <script>
+
+    var start = false;
+
+    $(document).ready(function(){
+        $("#nextBtn").hide();
+        $('#startBtn').show();
+        $('#input').keypress(function(e){
+        if(e.keyCode==13)
+            $('#checkBtn').click();
+        });
+    });
+
+    function begin(obj) {
+        getRandomWord();
+        start = true;
+        if(start) {
+            $('#nextBtn').show();
+            $('#startBtn').hide();
+        } else {
+            $('#nextBtn').hide();
+            $('#startBtn').show();
+        }
+    }
 
     function check() {
         if(current.word == $('#input').val()) {
