@@ -1,12 +1,13 @@
 var wordList = new Array();
 var current;
 var randomIndex;
+var repeatCount = 0;
 
 app.controller('prepare', function($location, $http) {
     
     var selected = $location.search().data;
 
-    $http.get("/app/resources/"+selected+".json")
+    $http.get("/spellryt/app/resources/"+selected+".json")
         .then(function(response) {
             var words = response.data.words;
             words.forEach(element => {
@@ -27,6 +28,27 @@ function getRandomWord() {
 
     console.log("Current Word is : "+current.word);
 
+    var msg = new SpeechSynthesisUtterance();
+    var voices = window.speechSynthesis.getVoices();
+    msg.voice = voices[2];
+    msg.rate = 10 / 10;
+    msg.pitch = 1;
+    msg.text = current.word;
+    msg.onend = function(e) {
+        console.log('Finished in ' + event.elapsedTime + ' seconds.');
+    };
+    speechSynthesis.speak(msg);
+}
+
+function repeat() {
+    console.log("current word is : "+current.word);
+
+    if(repeatCount >= 3) {
+        Materialize.toast('You have reached maximum limit!', 2000);
+        return;
+    }
+
+    repeatCount++;
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
     msg.voice = voices[2];

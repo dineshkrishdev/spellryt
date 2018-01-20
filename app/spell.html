@@ -6,13 +6,9 @@
                 <span class="card-title"><strong>Enter the text</strong></span>
                 <br/>
                 <div class="row">
-
                     <div class="col s6">
-
-                    <h6 id="word"></h6>
-
-                    <input type="text" id="input"/>
-
+                        <h6 id="word"></h6>
+                        <input type="text" id="input"/>
                     </div>
                     <div class="col s6">
                         <center>
@@ -34,7 +30,7 @@
                                         Repeat
                                         <i class="material-icons right">repeat</i>
                                     </button>
-                                    <button id="repeatBtn" onclick="repeat();" class="waves-effect waves-light btn">
+                                    <button id="clearBtn" onclick="clear();" class="waves-effect waves-light btn">
                                         Clear
                                         <i class="material-icons right">clear</i>
                                     </button>
@@ -60,12 +56,12 @@
 
     function check() {
         if(current.word == $('#input').val()) {
-            alert("correct");
+            Materialize.toast('Correct :)', 2000);
             makeDone();
             getRandomWord();
             $('#input').val("");
         } else {
-            alert("wrong");
+            Materialize.toast('Wrong! Try again', 2000);
         }
     }
 
