@@ -58,7 +58,6 @@ function($rootScope, $timeout) {
           : 'DevBuddy - Developer Supporing Tool';
         });
       };
-
       $rootScope.$on('$stateChangeSuccess', listener);
     }
   };

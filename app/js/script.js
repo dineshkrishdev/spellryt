@@ -4,9 +4,8 @@ var randomIndex;
 var repeatCount = 0;
 
 app.controller('prepare', function($location, $http) {
-    
-    var selected = $location.search().data;
-
+    var selected = $location.search().letter;
+    wordList = [];
     $http.get("/spellryt/app/resources/"+selected+".json")
         .then(function(response) {
             var words = response.data.words;
