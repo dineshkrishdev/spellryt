@@ -42,12 +42,10 @@ function getRandomWord() {
 
 function repeat() {
     console.log("current word is : "+current.word);
-
     if(repeatCount >= 3) {
         Materialize.toast('You have reached maximum limit!', 2000);
         return;
     }
-
     repeatCount++;
     var msg = new SpeechSynthesisUtterance();
     var voices = window.speechSynthesis.getVoices();
