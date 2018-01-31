@@ -85,7 +85,8 @@
     }
 
     function check() {
-        if(current.word == $('#input').val()) {
+        var typedWord = $('#input').val();
+        if(current.word == typedWord.toLowerCase()) {
             Materialize.toast('Correct :)', 2000);
             makeDone();
             getRandomWord();
