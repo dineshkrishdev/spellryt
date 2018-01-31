@@ -7,9 +7,25 @@
                 <div class="divider"></div>
                 <br/>
                 <div class="row">
-                    
+                    <div class="input-field col s12">
+                        <textarea id="customText" class="materialize-textarea"></textarea>
+                        <label for="textarea1">Enter the Words</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <a class="waves-effect waves-light btn" href="#!spell?type=custom" onclick="getCustomWords();">Next</a>
                 </div>
             </div>
         </div>
     </div>
 </div>
+
+<script>
+
+    var customWords = null;
+
+    function getCustomWords() {
+        customWords = $('#customText').val().split('\n');
+    }
+
+</script>

@@ -28,13 +28,22 @@ app.controller('prepare', function($location, $http) {
             .then(function(response) {
                 var words = response.data.words;
                 words.forEach(element => {
-                    var obj = new Object();
+                    var obj = new Object(); 
                     obj.word = element;
                     obj.status = false;
                     wordList.push(obj);
                 });
             });
         }
+    } else if(type == "custom") {
+        wordList = [];
+        var words = customWords;
+        words.forEach(element => {
+            var obj = new Object(); 
+            obj.word = element;
+            obj.status = false;
+            wordList.push(obj);
+        });
     }
     console.log(wordList);
 });
