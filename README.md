@@ -1,6 +1,6 @@
 # spellryt
 
-https://dineshkrishdev.github.io/spellryt/
+https://idineshkrishnan.github.io/spellryt/
 
 <p>The Spellryt is the free online spelling practice tool for english language, Which will help people to improve their spelling significantly. The tool is providing the variety of options such as</p>
 
